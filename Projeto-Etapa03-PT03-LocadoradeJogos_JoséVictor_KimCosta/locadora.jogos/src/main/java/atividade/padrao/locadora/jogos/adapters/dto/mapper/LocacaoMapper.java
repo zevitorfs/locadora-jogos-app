@@ -6,7 +6,7 @@ import atividade.padrao.locadora.jogos.core.domain.ItemLocacao;
 import atividade.padrao.locadora.jogos.core.domain.Locacao;
 import atividade.padrao.locadora.jogos.core.ports.output.ClienteRepository;
 import atividade.padrao.locadora.jogos.core.ports.output.JogoPlataformaRepository;
-import atividade.padrao.locadora.jogos.core.ports.input.services.ILocacaoServices;
+import atividade.padrao.locadora.jogos.core.ports.input.ILocacaoServices;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
