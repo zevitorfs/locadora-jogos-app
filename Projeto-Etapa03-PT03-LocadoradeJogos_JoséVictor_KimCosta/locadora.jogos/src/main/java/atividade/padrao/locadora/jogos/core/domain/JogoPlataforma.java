@@ -1,32 +1,42 @@
 package atividade.padrao.locadora.jogos.core.domain;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
-import lombok.*;
 
-import java.math.BigDecimal;
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@Entity
 public class JogoPlataforma {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @ManyToOne
-    @NotNull
-    @JoinColumn(name = "plataforma_fk")
-    private Plataforma plataforma;
-
-    @ManyToOne
-    @NotNull
-    @JoinColumn(name = "jogo_fk")
     private Jogo jogo;
-
-    @NotNull
-    @Min(0)
+    private Plataforma plataforma;
     private Double precoDiario;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public Jogo getJogo() {
+        return jogo;
+    }
+
+    public Plataforma getPlataforma() {
+        return plataforma;
+    }
+
+
+    public Double getPrecoDiario() {
+        return precoDiario;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setJogo(Jogo jogo) {
+        this.jogo = jogo;
+    }
+
+    public void setPlataforma(Plataforma plataforma) {
+        this.plataforma = plataforma;
+    }
+
+    public void setPrecoDiario(Double precoDiario) {
+        this.precoDiario = precoDiario;
+    }
 }

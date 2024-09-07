@@ -14,21 +14,44 @@ import java.util.List;
 @Entity
 public class Locacao {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idLocacao;
 
-    @ManyToOne
-    @JoinColumn(name = "cliente_fk", nullable = false)
+    private Integer id;
     private Cliente cliente;
-
-    @NotNull
-    @PastOrPresent
+    private List<ItemLocacao> itens;
     private LocalDate data;
 
-    @OneToMany (mappedBy = "locacao", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ItemLocacao> itens;
+    public Integer getId() {
+        return id;
+    }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public List<ItemLocacao> getItens() {
+        return itens;
+    }
+
+    public LocalDate getData() {
+        return data;
+    }
+
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public void setItens(List<ItemLocacao> itens) {
+        this.itens = itens;
+    }
+
+    public void setData(LocalDate data) {
+        this.data = data;
+    }
 
 
 }
