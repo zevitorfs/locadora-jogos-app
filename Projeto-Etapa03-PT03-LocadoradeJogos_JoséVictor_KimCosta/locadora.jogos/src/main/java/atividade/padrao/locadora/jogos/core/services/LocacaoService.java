@@ -1,6 +1,6 @@
 package atividade.padrao.locadora.jogos.core.services;
 
-import atividade.padrao.locadora.jogos.adapters.output.JpaRepositorioLocacao;
+import atividade.padrao.locadora.jogos.adapters.output.JpaLocacaoRepository;
 import atividade.padrao.locadora.jogos.core.domain.Locacao;
 import atividade.padrao.locadora.jogos.core.ports.output.LocacaoRepository;
 import atividade.padrao.locadora.jogos.core.ports.input.services.ILocacaoServices;
@@ -14,24 +14,24 @@ public class LocacaoService implements ILocacaoServices{
 
     @Autowired
     private LocacaoRepository repositorioLocacao;
-    private JpaRepositorioLocacao JparepositorioLocacao;
+    private JpaLocacaoRepository jparepositorioLocacaoRepository;
     public Locacao save(Locacao locacao) {
-        return JparepositorioLocacao.save(locacao);
+        return jparepositorioLocacaoRepository.save(locacao);
     }
 
     @Override
     public Locacao update(Integer id, Locacao locacaoAtualizada) {
-        return JparepositorioLocacao.findById(id)
+        return jparepositorioLocacaoRepository.findById(id)
                 .map(locacao -> {
                     locacao.setData(locacaoAtualizada.getData());
                     locacao.setItens(locacaoAtualizada.getItens());
-                    return JparepositorioLocacao.save(locacao);
+                    return jparepositorioLocacaoRepository.save(locacao);
                 })
                 .orElseThrow(()-> new RuntimeException("Locação não encontra com ID" + id));
 
     }
     public void delete(Integer id) {
-        JparepositorioLocacao.deleteById(id);
+        jparepositorioLocacaoRepository.deleteById(id);
 
     }
 

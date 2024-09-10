@@ -2,10 +2,10 @@ package atividade.padrao.locadora.jogos.adapters.dto.mapper;
 
 import atividade.padrao.locadora.jogos.adapters.dto.input.LocacaoInput;
 import atividade.padrao.locadora.jogos.adapters.dto.output.LocacaoOutput;
+import atividade.padrao.locadora.jogos.adapters.output.JpaJogoPlataformaRepository;
+import atividade.padrao.locadora.jogos.adapters.output.JpaClienteRepository;
 import atividade.padrao.locadora.jogos.core.domain.ItemLocacao;
 import atividade.padrao.locadora.jogos.core.domain.Locacao;
-import atividade.padrao.locadora.jogos.core.ports.output.ClienteRepository;
-import atividade.padrao.locadora.jogos.core.ports.output.JogoPlataformaRepository;
 import atividade.padrao.locadora.jogos.core.ports.input.services.ILocacaoServices;
 import atividade.padrao.locadora.jogos.core.services.CalcularCustoService;
 import lombok.AllArgsConstructor;
@@ -14,8 +14,8 @@ import org.springframework.stereotype.Component;
 @Component
 @AllArgsConstructor
 public class LocacaoMapper {
-    private final ClienteRepository clienteRepository;
-    private final JogoPlataformaRepository jogoPlataformaRepository;
+    private final JpaClienteRepository clienteRepository;
+    private final JpaJogoPlataformaRepository jogoPlataformaRepository;
     private final ILocacaoServices iLocacaoServices;
     private final CalcularCustoService CalcularCusto;
     public Locacao toModel(LocacaoInput locacaoInput){

@@ -1,6 +1,6 @@
 package atividade.padrao.locadora.jogos.core.services;
 
-import atividade.padrao.locadora.jogos.adapters.output.JpaRepositorioLocacao;
+import atividade.padrao.locadora.jogos.adapters.output.JpaLocacaoRepository;
 import atividade.padrao.locadora.jogos.core.domain.ItemLocacao;
 import atividade.padrao.locadora.jogos.core.domain.JogoPlataforma;
 import atividade.padrao.locadora.jogos.core.domain.Locacao;
@@ -12,7 +12,7 @@ public class AdicionaJogoAlocacao implements IAdicionaJogoAlocacao {
 
     @Autowired
     private LocacaoRepository repositorioLocacao;
-    private JpaRepositorioLocacao JparepositorioLocacao;
+    private JpaLocacaoRepository jparepositorioLocacaoRepository;
     @Override
     public void adicionarJogoALocacao(Locacao locacao, JogoPlataforma jogoPlataforma, int dias) {
         ItemLocacao itemLocacao = new ItemLocacao();

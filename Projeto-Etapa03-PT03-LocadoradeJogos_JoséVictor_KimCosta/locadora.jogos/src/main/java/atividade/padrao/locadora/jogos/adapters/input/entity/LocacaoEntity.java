@@ -26,7 +26,7 @@ public class LocacaoEntity extends atividade.padrao.locadora.jogos.core.domain.L
     private LocalDate data;
 
     @OneToMany (mappedBy = "locacao", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ItemLocacaoEntity> itens;
+    private List<ItemLocacaoEntity> Listaitens;
 
 
 
