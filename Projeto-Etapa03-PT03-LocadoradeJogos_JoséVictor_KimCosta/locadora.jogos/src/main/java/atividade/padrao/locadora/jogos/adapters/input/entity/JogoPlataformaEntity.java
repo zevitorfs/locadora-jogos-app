@@ -6,13 +6,12 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
-import java.math.BigDecimal;
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class JogoPlataforma extends atividade.padrao.locadora.jogos.core.domain.JogoPlataforma {
+public class JogoPlataformaEntity extends atividade.padrao.locadora.jogos.core.domain.JogoPlataforma {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -25,7 +24,7 @@ public class JogoPlataforma extends atividade.padrao.locadora.jogos.core.domain.
     @ManyToOne
     @NotNull
     @JoinColumn(name = "jogo_fk")
-    private Jogo jogo;
+    private JogoEntity jogoEntity;
 
     @NotNull
     @Min(0)

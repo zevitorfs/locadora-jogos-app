@@ -15,7 +15,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Cliente extends atividade.padrao.locadora.jogos.core.domain.Cliente {
+public class ClienteEntity extends atividade.padrao.locadora.jogos.core.domain.Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

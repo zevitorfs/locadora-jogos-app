@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Locacao extends atividade.padrao.locadora.jogos.core.domain.Locacao {
+public class LocacaoEntity extends atividade.padrao.locadora.jogos.core.domain.Locacao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,14 +19,14 @@ public class Locacao extends atividade.padrao.locadora.jogos.core.domain.Locacao
 
     @ManyToOne
     @JoinColumn(name = "cliente_fk", nullable = false)
-    private Cliente cliente;
+    private ClienteEntity clienteEntity;
 
     @NotNull
     @PastOrPresent
     private LocalDate data;
 
     @OneToMany (mappedBy = "locacao", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ItemLocacao> itens;
+    private List<ItemLocacaoEntity> itens;
 
 
 

@@ -1,8 +1,6 @@
 package atividade.padrao.locadora.jogos.core.services;
 
 import atividade.padrao.locadora.jogos.adapters.output.JpaRepositorioLocacao;
-import atividade.padrao.locadora.jogos.core.domain.ItemLocacao;
-import atividade.padrao.locadora.jogos.core.domain.JogoPlataforma;
 import atividade.padrao.locadora.jogos.core.domain.Locacao;
 import atividade.padrao.locadora.jogos.core.ports.output.LocacaoRepository;
 import atividade.padrao.locadora.jogos.core.ports.input.services.ILocacaoServices;

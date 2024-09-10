@@ -15,7 +15,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class ItemLocacao extends atividade.padrao.locadora.jogos.core.domain.ItemLocacao {
+public class ItemLocacaoEntity extends atividade.padrao.locadora.jogos.core.domain.ItemLocacao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

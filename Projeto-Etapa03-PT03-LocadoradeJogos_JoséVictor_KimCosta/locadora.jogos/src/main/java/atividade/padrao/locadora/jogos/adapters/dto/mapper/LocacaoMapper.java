@@ -4,7 +4,6 @@ import atividade.padrao.locadora.jogos.adapters.dto.input.LocacaoInput;
 import atividade.padrao.locadora.jogos.adapters.dto.output.LocacaoOutput;
 import atividade.padrao.locadora.jogos.core.domain.ItemLocacao;
 import atividade.padrao.locadora.jogos.core.domain.Locacao;
-import atividade.padrao.locadora.jogos.core.ports.input.services.ICalcularCustoService;
 import atividade.padrao.locadora.jogos.core.ports.output.ClienteRepository;
 import atividade.padrao.locadora.jogos.core.ports.output.JogoPlataformaRepository;
 import atividade.padrao.locadora.jogos.core.ports.input.services.ILocacaoServices;
