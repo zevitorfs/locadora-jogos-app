@@ -7,28 +7,16 @@ import lombok.*;
 
 import java.time.LocalDate;
 import java.util.List;
-@Getter
 @Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
 public class Locacao {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idLocacao;
-
-    @ManyToOne
-    @JoinColumn(name = "cliente_fk", nullable = false)
+    private Integer id;
     private Cliente cliente;
-
-    @NotNull
-    @PastOrPresent
-    private LocalDate data;
-
-    @OneToMany (mappedBy = "locacao", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ItemLocacao> itens;
-
+    private LocalDate data;
 
 
 }

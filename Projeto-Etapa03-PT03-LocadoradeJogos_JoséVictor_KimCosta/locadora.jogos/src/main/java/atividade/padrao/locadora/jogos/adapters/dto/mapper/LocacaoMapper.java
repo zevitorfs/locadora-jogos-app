@@ -2,20 +2,22 @@ package atividade.padrao.locadora.jogos.adapters.dto.mapper;
 
 import atividade.padrao.locadora.jogos.adapters.dto.input.LocacaoInput;
 import atividade.padrao.locadora.jogos.adapters.dto.output.LocacaoOutput;
+import atividade.padrao.locadora.jogos.adapters.output.JpaJogoPlataformaRepository;
+import atividade.padrao.locadora.jogos.adapters.output.JpaClienteRepository;
 import atividade.padrao.locadora.jogos.core.domain.ItemLocacao;
 import atividade.padrao.locadora.jogos.core.domain.Locacao;
-import atividade.padrao.locadora.jogos.core.ports.output.ClienteRepository;
-import atividade.padrao.locadora.jogos.core.ports.output.JogoPlataformaRepository;
 import atividade.padrao.locadora.jogos.core.ports.input.services.ILocacaoServices;
+import atividade.padrao.locadora.jogos.core.services.CalcularCustoService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
 @AllArgsConstructor
 public class LocacaoMapper {
-    private final ClienteRepository clienteRepository;
-    private final JogoPlataformaRepository jogoPlataformaRepository;
+    private final JpaClienteRepository clienteRepository;
+    private final JpaJogoPlataformaRepository jogoPlataformaRepository;
     private final ILocacaoServices iLocacaoServices;
+    private final CalcularCustoService CalcularCusto;
     public Locacao toModel(LocacaoInput locacaoInput){
         Locacao locacao = new Locacao();
         locacao.setData(locacaoInput.getData());
@@ -37,12 +39,12 @@ public class LocacaoMapper {
 
     public LocacaoOutput toResponse(Locacao locacao){
         LocacaoOutput locacaoOutput = new LocacaoOutput();
-        locacaoOutput.setIdLocacao(locacao.getIdLocacao());
+        locacaoOutput.setIdLocacao(locacao.getId());
         locacaoOutput.setCliente(new LocacaoOutput
                 .ClienteOutput(locacao
                 .getCliente().getId(),locacao.getCliente().getNome()));
         locacaoOutput.setData(locacao.getData());
-        locacaoOutput.setCustoTotal(iLocacaoServices.calcularCustoTotal(locacao));
+        locacaoOutput.setCustoTotal(CalcularCusto.calcularCustoTotal(locacao));
 
         locacaoOutput.setItens(locacao.getItens().stream().map(item -> new LocacaoOutput.ItemLocacaoOutput(
                 item.getId(),
